@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import { useState } from 'react';
 import './header.css';
 
 export function Header() {
@@ -6,6 +6,13 @@ export function Header() {
     
     const handleSwitch = () => {
         setIsActive(value => !value);
+        if(!isActive) {
+            document.body.style.backgroundColor = "black";    
+            document.body.style.color = "white";    
+        }else {
+            document.body.style.backgroundColor = "white";    
+            document.body.style.color = "black";    
+        }
     };
 
     return (
@@ -18,8 +25,8 @@ export function Header() {
                         <span className="slider"></span>
                     </label>
                 </li>
-                <li className="flex w-12 text-center">{isActive ? "Escuro" : "Claro"}</li>
-                <li>Sobre</li>
+                <li className="flex w-12 justify-center">{isActive ? "Escuro" : "Claro"}</li>
+                <li><a href="#sobre">Sobre</a></li>
                 <li>Habilidades</li>
                 <li>Projetos</li>
                 <li>Contato</li>
