@@ -1,0 +1,98 @@
+.textSection {
+    user-select: none;
+    cursor: pointer;
+    max-height: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+.textSection:hover {
+  color: #FF3038;
+}
+
+.textSection::after{
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+.textSection:hover::after {
+  width: 25px;
+  border-bottom: 3px;
+  border-style: ridge;
+  border-color: #FF3038;
+  color: #FF3038;
+}
+
+.textSection:active {
+    cursor: default;
+    font-size: 15px;
+}
+
+/* Container style for positioning */
+  .switch-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Hide the default checkbox graphic */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The outer track box of the switch */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 66px;
+    height: 30px;
+  }
+
+  /* The visible background slider track */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: white;
+    transition: .4s;
+    border-radius: 34px;
+    border: 2px solid #E5E7EB;
+    box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.363);
+  }
+
+  /* The inner circular moving knob */
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 32px;
+    width: 37px;
+    left: -1.5px;
+    top: -3px;
+    /* bottom: -2px; */
+    /* background-color: rgba(95, 14, 14, 0.185); */
+    background-color: rgba(117, 109, 109, 0.192);
+    /* background-color: red; */
+    background-image: url("../../../public/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: .4s;
+    border-radius: 50%;
+  }
+
+  /* Green background when switch is ON (checked) */
+  input:checked + .slider {
+    background-color: #FAFAFA;
+  }
+
+/* Moves the knob to the right when switch is ON */
+input:checked + .slider:before {
+  transform: translateX(30px);
+  background-color: black;
+  background-image: url("../../../public/mode_night_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
