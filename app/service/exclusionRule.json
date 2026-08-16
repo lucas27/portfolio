@@ -1,0 +1,3 @@
+{
+    "exclusion": ["cadastro", "teste_para_vaga", "cypress-teste", "drive-API-com-zipfile", "encurtador-de-link-BackEnd", "notificacao-Rabbitmq", "sistemaDeReserva"]
+}
