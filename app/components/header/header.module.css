@@ -61,7 +61,7 @@
     transition: .4s;
     border-radius: 34px;
     border: 2px solid #E5E7EB;
-    box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.363);
+    box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.171);
   }
 
   /* The inner circular moving knob */
