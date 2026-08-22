@@ -1,6 +1,73 @@
-.codeText {
+.li {
+    width: 40rem;
     padding-left: 2rem;
     font-size: medium;
     font-weight: 500;
-    white-space: pre-line;
+    line-height: 28px;
+    animation: reset 22s steps(1) infinite;
+}
+
+.codeText {
+    white-space: nowrap;
+    display: block;
+    overflow: hidden;
+    width: 0;
+}
+
+.codeText:nth-child(1) {
+    max-width: 11.2rem;
+    animation: moveCursor 2.5s steps(25, end) 0s forwards, cursor 0.5s step-end infinite 0s;
+}
+.codeText:nth-child(2) {
+    max-width: 22.2rem;
+    animation: moveCursor 2.5s steps(25, end) 2.7s forwards, cursor 0.5s step-end infinite 2.7s;
+}
+.codeText:nth-child(3) {
+    max-width: 37.2rem;
+    animation: moveCursor 2.5s steps(25, end) 5.4s forwards, cursor 0.5s step-end infinite 5.4s;
+    
+}
+.codeText:nth-child(4) {
+    max-width: 0rem;
+    animation: moveCursor 2.5s steps(25, end) 8.1s forwards, cursor 0.5s step-end infinite 8.1s;
+    
+}
+.codeText:nth-child(5) {
+    max-width: 20.4rem;
+    animation: moveCursor 2.5s steps(25, end) 10.8s forwards, cursor 0.5s step-end infinite 10.8s;
+}
+
+.codeText:nth-child(6) {
+    max-width: 9rem;
+    animation: moveCursor 2.5s steps(25, end) 13.5s forwards, cursor 0.5s step-end infinite 13.5s;
+}
+.codeText:nth-child(7) {
+    max-width: 2.5rem;
+    animation: moveCursor 2.5s steps(25, end) 16.2s forwards, cursor 0.5s step-end infinite 16.2s;
+}
+.codeText:nth-child(8) {
+    max-width: 0.8rem;
+    animation: moveCursor 2.5s steps(25, end) 18.9s forwards, cursor 0.5s step-end infinite 18.9s;
+}
+
+@keyframes cursor {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@keyframes moveCursor {
+    from {
+        width: 0;
+        border-right: 2px solid red;
+    }
+    to {
+        width: 100%;
+        border-right: 2px solid transparent;
+    }
+}
+
+@keyframes reset {
+    0%, 93% { display: block;}
+    93.1%, 100% { display: none; }
 }
