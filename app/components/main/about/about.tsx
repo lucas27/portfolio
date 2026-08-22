@@ -30,7 +30,9 @@ function about() {
                     <LinksButton />
                 </nav>
             </section>
-            <aside className={`rounded-xl w-180 h-85 shadow-2xl ${textColor?.includes("black") ? "bg-white" : "bg-[#111827]"} `}>
+            {/* tela com código */}
+            <aside className={`rounded-xl w-180 h-85 shadow-2xl ${textColor?.includes("black") ? "bg-white" : "bg-[#111827]"}`}
+                style={textColor?.includes("black") ? {boxShadow: ""} : {boxShadow:"0px 10px 100px #C92A2A"}}>
                 <section className="flex flex-col gap-3">
                     <header className="flex h-15 relative items-center justify-between pr-6 pl-6
                     after:border-b-2 after:absolute after:w-[94%] after:h-16 after:border-gray-300
