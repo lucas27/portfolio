@@ -3,7 +3,8 @@ import { CodeScreenLineText } from './components/codeScreenLineText';
 import { CodeScreenButton } from './components/codeScreenButton';
 import { LinksButton } from './components/linkButtons';
 import { ThemeContext } from "@/app/utils/context";
-import { useContext } from "react";
+import { Suspense, useContext } from "react";
+import { MainBoxTechnologie } from './components/mainBoxTechnologie';
 
 function about() {
     const color = useContext(ThemeContext);
@@ -46,8 +47,14 @@ function about() {
                             <CodeScreenLineText />
                         </ol>
                     </main>
-                    <footer></footer>
                 </section>
+                <footer>
+                    <Suspense>
+                        <ul className="flex gap-7 justify-center">
+                            <MainBoxTechnologie />
+                        </ul>
+                    </Suspense>
+                </footer>
             </aside>
         </section>
     );
