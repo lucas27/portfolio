@@ -28,12 +28,12 @@ export function LinksButton() {
         <a 
         key={index} 
         href={link} 
-        className={`flex border-2 rounded-lg p-2 gap-1
+        className={`flex border-2 rounded-lg p-2 gap-1 select-none
             ${(textColor?.includes("black") && index !== 0) ? "text-black shadow-sm" : "text-[#FAFAFA]"}
+            ${index !== 1 && index !== 0 ? "border-none bg-[#141c2c]" : null} 
             ${(index !== 1 && index !== 0 && textColor?.includes("black")) ? "border-none shadow-lg bg-white" : null}
-            ${index !== 1 && index !== 0 ? "border-none bg-[#111827]" : null} 
             ${index === 0 ? `bg-[#FF3B3B] border-transparent text-[#FAFAFA]` : `border-[grey]`}`} 
-        download
+            download
         >
             <img 
             src={ icon[index] }
