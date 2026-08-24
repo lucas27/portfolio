@@ -12,8 +12,13 @@ import postgres from '@/public/icons8-postgresql.svg';
 import rabbit from '@/public/rabbitmq-logo-svgrepo-com.svg';
 import docker from '@/public/icons8-docker-24.png';
 
-import { Suspense } from 'react';
+import { Suspense, useContext } from 'react';
+import { ThemeContext } from '@/app/utils/context';
+
 function Skills() {
+    const color = useContext(ThemeContext);
+    const textColor = color?.themeMode;
+    
     const BoxTechnologie = () => {
         const technologieIcons = [
             java.src,
@@ -45,10 +50,11 @@ function Skills() {
             "RabbitMQ",
             "Docker"
         ]
-
+        
         return technologieIcons.map((icon, index) => (
             <li key={index} 
-            className="flex w-60 h-12 justify-center items-center gap-2 font-[Roboto] text-lg font-[600] border-2 border-[gray] rounded-xl"
+            className="flex w-60 h-12 justify-center items-center gap-2 font-[Roboto] text-lg font-[600] border-2 rounded-xl border-transparent shadow-md"
+            style={textColor?.includes("black") ? {backgroundColor: "white", borderColor: "gray", color: textColor} : {backgroundColor: "#141c2c", color: textColor} }
             >
                 <img src={icon} 
                 className="size-8"
@@ -59,9 +65,10 @@ function Skills() {
     };
 
     return (
-        <section className="flex flex-col gap-10 pb-10 pl-105 relative max-w-500 select-none">
+        <section className="flex flex-col gap-10 pb-10 pl-105 relative max-w-500">
             <h2 id="habilidades" 
-            className="flex text-4xl font-[Roboto] after:border-b-2 after:absolute after:w-22 after:h-11 after:border-red-500"
+            className="flex text-4xl font-[Inter] after:border-b-2 after:absolute after:w-22 after:h-13 after:border-red-500"
+            style={textColor?.includes("black") ? {color: textColor} : {color: textColor}}
             >Habilidades & Tecnologias</h2>
             <ul className="flex gap-5 flex-wrap">
                 <Suspense>
