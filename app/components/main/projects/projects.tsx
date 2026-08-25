@@ -1,40 +1,49 @@
-import Service from "@/app/service/Service";
-import { ThemeContext } from "@/app/utils/context";
-import { Suspense, use, useContext, useState } from "react";
 import arrow from '@/public/icons8-arrow-right-24.png';
 import arrowWhite from '@/public/icons8-arrow-right-24-white.png';
+import cartAnimationIcon from '@/public/icons8-cart.gif';
+import avatarIcon from '@/public/icons8-profile-avatar-50.png';
+import soundAnimationIcon from '@/public/icons8-sound.gif';
+
+import Service from "@/app/service/Service";
+import description from './description.json';
+
+import { ThemeContext } from "@/app/utils/context";
+import { Suspense, use, useContext, useState } from "react";
 
 type Project = { 
-    id: number; 
-    name: string 
+    name: string; 
+    clone_url: string; 
 };
-// const ProjectRepository = ({ request }: { request: Promise<Project[]> }) => {
-//     const resp = use<Project[]>(request);
 
-//     return resp.map(value => (
-//         <a className="border-3 p-5" key={value.id}>{value.name}</a>
-//     ));
-// }
-const ProjectRepository = ({theme}: {theme : string | undefined}) => {
+const ProjectRepository = ({theme, request }: {theme : string | undefined, request: Promise<Project[]>}) => {
     const [hover, setHover] = useState<number | null>(null);
 
-    const resp = ["E-commece", "Projeto", "Soundboard"];
-    const description = ["E-commece completo com front-end e back-end com angular e spring boot.", "portfolio pessoal com next.js, react e tailwind CSS.", "Replica do soundboard do discord com sistema de edição de audio e adicionar imagem."]
-    
-    return resp.map((name, index) => (
+    try {
+        const resp = use<Project[]>(request);
+
+    }catch (err) {
+        console.error(err);
+    }
+    const icons = [
+        cartAnimationIcon.src,
+        avatarIcon.src,
+        soundAnimationIcon.src
+    ]
+
+    return resp.map((projects, index) => (
         <li 
         key={index}
         className="flex gap-4 border-1 border-transparent rounded-2xl shadow-xl p-5 h-45 justify-center" 
         style={{backgroundColor: theme?.includes("black") ? "white" : "#171B25"}}
         >
             {/* <img src="" /> */}
-            <div className="border-3 border-[#FF3B3B] h-20 w-20"></div>
+            <img className="border-1 rounded-xl bg-white border-transparent shadow-[0_0_15px_rgba(0,0,0,0.3)] h-15 w-15 p-3" src={icons[index]} />
             <div className="flex relative flex-col w-120 ">
                 <h1 className="font-[Inter] text-xl font-bold"
                 style={{color: theme}}
-                >{name}</h1>
+                >{projects.name.charAt(0).toUpperCase() + projects.name.substring(1)}</h1>
                 <p className="font-[Roboto] text-lg">{description[index]}</p>
-                <a 
+                <a href={projects.clone_url} target="_blank"
                 onMouseEnter={() => setHover(index)}
                 onMouseLeave={() => setHover(null)}
                 style={{
@@ -60,7 +69,7 @@ const ProjectRepository = ({theme}: {theme : string | undefined}) => {
 function Projects() {
     const color = useContext(ThemeContext);
     const textColor = color?.themeMode;  
-    // const service = new Service().getRequest() as unknown as Promise<Project[]>;
+    const service = new Service().getRequest() as unknown as Promise<Project[]>;
     
     return (
         <nav id="projetos" className="flex flex-col relative pl-105 gap-10 h-100">
@@ -69,8 +78,7 @@ function Projects() {
             >Projetos</h3>
             <ul className="flex flex-row flex-wrap gap-3">
                 <Suspense >
-                    {/* <ProjectRepository request={service}/> */}
-                    <ProjectRepository theme={textColor}/>
+                    <ProjectRepository theme={textColor} request={service}/>
                 </Suspense>
             </ul>            
         </nav>
