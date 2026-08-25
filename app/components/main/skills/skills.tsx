@@ -54,7 +54,7 @@ function Skills() {
         return technologieIcons.map((icon, index) => (
             <li key={index} 
             className="flex w-60 h-12 justify-center items-center gap-2 font-[Roboto] text-lg font-[600] border-2 rounded-xl border-transparent shadow-md"
-            style={textColor?.includes("black") ? {backgroundColor: "white", borderColor: "gray", color: textColor} : {backgroundColor: "#141c2c", color: textColor} }
+            style={textColor?.includes("black") ? {backgroundColor: "white", borderColor: "gray", color: textColor} : {backgroundColor: "#171B25", color: textColor} }
             >
                 <img src={icon} 
                 className="size-8"
