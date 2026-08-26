@@ -12,10 +12,11 @@ import postgres from '@/public/icons8-postgresql.svg';
 import rabbit from '@/public/rabbitmq-logo-svgrepo-com.svg';
 import docker from '@/public/icons8-docker-24.png';
 
-import { Suspense, useContext } from 'react';
+import { Suspense, useContext, useState } from 'react';
 import { ThemeContext } from '@/app/utils/context';
 
 function Skills() {
+    const [hover, setHover] = useState<number | null>(null);
     const color = useContext(ThemeContext);
     const textColor = color?.themeMode;
     
@@ -52,9 +53,18 @@ function Skills() {
         ]
         
         return technologieIcons.map((icon, index) => (
-            <li key={index} 
-            className="flex w-60 h-12 justify-center items-center gap-2 font-[Roboto] text-lg font-[600] border-2 rounded-xl border-transparent shadow-md"
-            style={textColor?.includes("black") ? {backgroundColor: "white", borderColor: "gray", color: textColor} : {backgroundColor: "#171B25", color: textColor} }
+            <li key={index}
+            onMouseEnter={() => setHover(index)} 
+            onMouseLeave={() => setHover(null)} 
+            className="flex w-60 h-12 justify-center items-center gap-2 font-[Roboto] text-lg font-[600] border-2 rounded-xl border-transparent select-none"
+            style={textColor?.includes("black") ? {backgroundColor: "white", 
+                color: textColor, cursor: "pointer", 
+                boxShadow: hover === index ? "0 0 2px 2px red" : "0 0 1px 1px gray"} 
+                : 
+                {backgroundColor: "#171B25", color: textColor, 
+                    boxShadow: hover === index ? "0 0 2px 2px red" : "", cursor: "pointer"} 
+                }
+            
             >
                 <img src={icon} 
                 className="size-8"
