@@ -20,7 +20,7 @@ export function Header() {
     };
 
     const handleScrollSection = (sectionId: string) => {
-        console.log(sectionId);
+        // console.log(sectionId);
         const section = document.querySelector(sectionId);
         section?.scrollIntoView({ behavior: 'smooth' });
     };
