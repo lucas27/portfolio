@@ -27,7 +27,7 @@ function about() {
                         Desenvolvedor com foco em Java e Spring Boot, experiência prática no desenvolvimento de APIs Rest, autenticação com JWT, modelagem de bancos de dados relacionais, microsserviços e aplicações Full Stack com React e Angular.
                     </span>
                 </p>
-                <nav className="flex flex-wrap gap-3 max-w-70">
+                <nav className="flex flex-wrap gap-3 max-w-80 ">
                     <LinksButton />
                 </nav>
             </section>
