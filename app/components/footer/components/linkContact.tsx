@@ -1,3 +1,6 @@
+import messageWhiteIcon from '@/public/icons8-message-white-24.png';
+import messageBlackIcon from '@/public/icons8-message-black-24.png';
+
 import { ThemeContext } from "@/app/utils/context";
 import { Suspense, useContext } from "react";
 import { RedirectLink } from "./redirectLink";
@@ -25,6 +28,18 @@ export function LinkContact() {
                         <RedirectLink textColor={textColor} />
                     </Suspense>
                 </ul>
+                <div className="flex relative top-20 p-3 rounded-lg gap-4"
+                style={{backgroundColor: textColor?.includes("black") ? "white" : "#171b25"}}
+                >
+                    <img src={textColor?.includes("black") ? messageBlackIcon.src : messageWhiteIcon.src} />
+                    <p className="flex gap-1 font-[Reboto] font-bold">
+                        Aberto a oportunidades 
+                        <span className="text-red-500">
+                            Full Stack, Back-end
+                        </span> 
+                        e projetos desafiadores.
+                    </p>
+                </div>
             </div>
         </section>
     );
