@@ -14,6 +14,8 @@ export function RedirectLink({textColor}: {textColor : string | undefined}) {
 
     const text = ["E-mail", "Linkedin", "Github", "Currículo"];
 
+    const links = ["https://mail.google.com/mail/?view=cm&fs=1&to=lucasbrasileiro671@gmail.com", "https://www.linkedin.com/in/lucas-fernandes-brasileiro", "https://github.com/lucas27", "/lucas fernandes brasileiro.pdf"];
+
     const message = ["Envie um e-mail diretamente para mim.", "Vamos nos conectar no Linkedin.", "Confira meus projetos e contribuições.", "Baixe meu currículo em PDF."];
 
     const icons = [
@@ -25,13 +27,17 @@ export function RedirectLink({textColor}: {textColor : string | undefined}) {
         "Conectar",
         "Ver perfil",
         "Download"
-    ]
+    ];
+
+    const handleClickLink = (index: number): void => {
+        window.open(links[index], "_blank");
+    };
 
     return text.map((text, index) => (
         <li 
         key={index}
-        className="flex flex-col h-80 w-60 justify-center items-center text-center rounded-xl"
-        style={{backgroundColor: textColor?.includes("black") ? "white" : "rgb(23, 27, 37)"}}
+        className="flex flex-col h-80 w-60 justify-center items-center text-center rounded-xl shadow-lg"
+        style={{backgroundColor: textColor?.includes("black") ? "white" : "#171b25"}}
         >
             <img
             className="bg-[#FF3B3B] p-3 rounded-4xl h-15 w-15" 
@@ -43,6 +49,7 @@ export function RedirectLink({textColor}: {textColor : string | undefined}) {
             <button
             onMouseEnter={() => setHover(index)}
             onMouseLeave={() => setHover(null)}
+            onClick={() => handleClickLink(index)}
             className="p-2 pr-8 pl-8 relative top-5 flex gap-2 rounded-lg items-center font-[Reboto] font-bold"
             style={{backgroundColor: hover === index ? "#FF3B3B" : "", border: hover !== index ? "1px solid red" : "1px solid transparent", color: hover !== index ? "#FF3B3B" : "white", cursor: "pointer"}}
             >
