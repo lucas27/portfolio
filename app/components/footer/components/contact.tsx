@@ -8,7 +8,7 @@ export function Contact() {
     
     return (
         <section className="flex flex-col gap-5 p-12 rounded-2xl"
-        style={{backgroundColor: textColor?.includes("black") ? "white" : "rgb(11, 17, 27)"}}
+        // style={{backgroundColor: textColor?.includes("black") ? "white" : "rgb(11, 17, 27)"}}
         >
             <h1
             className="flex relative text-4xl font-[Inter] after:absolute after:w-22 after:border-b-3 after:h-12 after:border-[#FF3B3B]"
