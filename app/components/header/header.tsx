@@ -13,7 +13,8 @@ export function Header() {
             document.body.style.color = "#f3f4f6d3";
             themeMode?.setThemeMode("#F3F4F6");
         }else {
-            document.body.style.backgroundColor = "#FAFAFA";    
+            // document.body.style.backgroundColor = "#FAFAFA";    
+            document.body.style.backgroundColor = "#f8efef";    
             document.body.style.color = "black";
             themeMode?.setThemeMode("black"); 
         }
@@ -44,7 +45,7 @@ export function Header() {
     }
 
     return (
-        <header className={`flex relative 
+        <header className={`flex fixed w-screen z-2
         ${isActive ? "bg-[#0B111B] text-[#F3F4F6] " : "bg-[#FAFAFA] text-[#111827] border-[#E5E7EB] shadow-lg"}  
         h-20 items-center justify-around border-b-2 
         font-[Manrope] font-bold gap-10`}>
