@@ -11,7 +11,7 @@ function about() {
     const textColor = color?.themeMode;
 
     return (
-        <section className="flex justify-evenly relative top-10">
+        <section id="sobre" className="flex justify-evenly relative top-10 scroll-m-20">
             <section className="flex flex-col gap-3">
                 <h1 className="font-[Manrope] text-3xl font-bold text-[#FF3B3B]">Olá, eu sou <br />
                 <strong className={`text-6xl text-[${textColor}]`}>Lucas
