@@ -7,7 +7,7 @@ import Footer from "./components/footer/footer";
 
 export default function Home() {
     return (
-        <body>
+        <body id="início">
             <ThemeProvider>
                 <Header />
                 <Main />
