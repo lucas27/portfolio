@@ -75,8 +75,10 @@ function Skills() {
     };
 
     return (
-        <section className="flex flex-col gap-10 pb-10 pl-105 relative max-w-500">
-            <h2 id="habilidades" 
+        <section  
+        id="habilidades"
+        className="flex flex-col gap-10 pb-10 pl-105 relative max-w-500 scroll-m-30">
+            <h2 
             className="flex text-4xl font-[Inter] after:border-b-2 after:absolute after:w-22 after:h-13 after:border-red-500"
             style={textColor?.includes("black") ? {color: textColor} : {color: textColor}}
             >Habilidades & Tecnologias</h2>
