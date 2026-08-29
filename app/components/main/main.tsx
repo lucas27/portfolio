@@ -5,7 +5,7 @@ import Skills from "./skills/skills";
 
 function Main() {
     return (
-        <main className="flex flex-col gap-20">
+        <main className="flex flex-col gap-30 relative top-25">
             <Sobre />
             <Skills />
             <Projects />
