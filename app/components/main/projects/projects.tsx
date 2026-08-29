@@ -18,12 +18,8 @@ type Project = {
 const ProjectRepository = ({theme, request }: {theme : string | undefined, request: Promise<Project[]>}) => {
     const [hover, setHover] = useState<number | null>(null);
 
-    try {
-        const resp = use<Project[]>(request);
+    const resp = use<Project[]>(request);
 
-    }catch (err) {
-        console.error(err);
-    }
     const icons = [
         cartAnimationIcon.src,
         avatarIcon.src,
@@ -72,7 +68,7 @@ function Projects() {
     const service = new Service().getRequest() as unknown as Promise<Project[]>;
     
     return (
-        <nav id="projetos" className="flex flex-col relative pl-105 gap-10 h-100">
+        <nav id="projetos" className="flex flex-col relative pl-105 gap-10 h-100 scroll-m-30">
             <h3 className="flex text-4xl font-[Inter] after:absolute after:border-b-2 after:border-[#FF3B3B] after:w-19 after:h-12"
             style={{color: textColor}}
             >Projetos</h3>
