@@ -42,10 +42,10 @@ export function LinksButton() {
         onMouseLeave={() => setIsHover(null)} 
         className={`flex border-2 rounded-lg p-2 gap-1 select-none
             ${(textColor?.includes("black") && index !== 0) ? " text-black shadow-sm" : "text-[#FAFAFA]"}
-            ${index !== 1 && index !== 0 ? " bg-[#141c2c]" : null} 
+            ${index !== 1 && index !== 0 ? " bg-[#171b25]" : null} 
             ${(index !== 1 && index !== 0 && textColor?.includes("black")) ? `shadow-[0_0_15px_rgba(0,0,0,0.3)]
             // não é bonito, mas foi um jeito de manter a gambiarra 
-            ${(isHover !== 0 && isHover !== 1 && isHover === index) ?  "cursor-pointer border-red-500 shadow-red-500 shadow-lg bg-transparent" : "bg-transparent border-transparent "}
+            ${(isHover !== 0 && isHover !== 1 && isHover === index) ?  "cursor-pointer border-red-500 shadow-red-500 shadow-lg bg-white" : "bg-white border-transparent "}
             ` 
             : (isHover !== 0  && isHover === index) ?  "border-red-500 shadow-[red] shadow-sm cursor-pointer" 
             : index === 1 ? " border-[grey]" : "border-transparent"}
