@@ -8,17 +8,28 @@ import Service from "@/app/service/Service";
 import description from './description.json';
 
 import { ThemeContext } from "@/app/utils/context";
-import { Suspense, use, useContext, useState } from "react";
+import { Suspense, use, useContext, useEffect, useState } from "react";
 
 type Project = { 
     name: string; 
     clone_url: string; 
 };
 
-const ProjectRepository = ({theme, request }: {theme : string | undefined, request: Promise<Project[]>}) => {
-    const [hover, setHover] = useState<number | null>(null);
+const cacheSession = async (request: Promise<Project[]>):Promise<Project[]> => {
+    const cache = sessionStorage.getItem("projectsCache");
 
-    const resp = use<Project[]>(request);
+    if(cache) {
+        return JSON.parse(cache);
+    }
+
+    const data = await request;
+    sessionStorage.setItem("projectsCache", JSON.stringify(data));
+
+    return data;
+}
+
+const ProjectRepository = ({theme, resp }: {theme : string | undefined, resp: Project[]}) => {
+    const [hover, setHover] = useState<number | null>(null);
 
     const icons = [
         cartAnimationIcon.src,
@@ -32,7 +43,6 @@ const ProjectRepository = ({theme, request }: {theme : string | undefined, reque
         className="flex gap-4 border-1 border-transparent rounded-2xl shadow-xl p-5 h-45 justify-center" 
         style={{backgroundColor: theme?.includes("black") ? "white" : "#171B25"}}
         >
-            {/* <img src="" /> */}
             <img className="border-1 rounded-xl bg-white border-transparent shadow-[0_0_15px_rgba(0,0,0,0.3)] h-15 w-15 p-3" src={icons[index]} />
             <div className="flex relative flex-col w-120 ">
                 <h1 className="font-[Inter] text-xl font-bold"
@@ -63,10 +73,20 @@ const ProjectRepository = ({theme, request }: {theme : string | undefined, reque
 }
 
 function Projects() {
+    const [projects, setProjects] = useState<Project[]>([]); 
     const color = useContext(ThemeContext);
-    const textColor = color?.themeMode;  
-    const service = new Service().getRequest() as unknown as Promise<Project[]>;
+    const textColor = color?.themeMode; 
     
+    useEffect(() => {
+       const load = async () => {
+            const service = new Service().getRequest() as unknown as Promise<Project[]>;
+            const resp = await cacheSession(service);
+            setProjects(resp);
+        }
+        load()
+
+    }, [])
+
     return (
         <nav id="projetos" className="flex flex-col relative pl-105 gap-10 h-100 scroll-m-30">
             <h3 className="flex text-4xl font-[Inter] after:absolute after:border-b-2 after:border-[#FF3B3B] after:w-19 after:h-12"
@@ -74,7 +94,7 @@ function Projects() {
             >Projetos</h3>
             <ul className="flex flex-row flex-wrap gap-3">
                 <Suspense >
-                    <ProjectRepository theme={textColor} request={service}/>
+                    <ProjectRepository theme={textColor} resp={projects}/>
                 </Suspense>
             </ul>            
         </nav>
