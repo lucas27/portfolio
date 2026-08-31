@@ -7,7 +7,7 @@ import Footer from "./components/footer/footer";
 
 export default function Home() {
     return (
-        <body id="início">
+        <body id="início" className="flex flex-col gap-80">
             <ThemeProvider>
                 <Header />
                 <Main />
