@@ -6,7 +6,7 @@ import locationIcon from '@/public/icons8-location-24.png';
 export function ContactAddress({textColor} : {textColor : string | undefined}) {
     const textLink = ["E-mail", "Linkedin", "Github", "localização"];
     
-    const links = ["lucasBrasileiro671@gmail.com", "linkedin.com/in/lucas-fernandes-brasileiro/", "github.com/lucas27", "Brasil"];
+    const links = ["lucasBrasileiro671@gmail.com", "linkedin.com/in/lucas-fernandes-brasileiro/", "github.com/lucas27", "Belém/PA, Brasil."];
 
     const icons = [
         emailIcon.src, linkedinIcon.src, githubIcon.src, locationIcon.src 
