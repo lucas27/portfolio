@@ -13,7 +13,7 @@ export function LinkContact() {
         <section className="flex flex-col p-12 rounded-2xl"
         // style={{backgroundColor: textColor?.includes("black") ? "transparent" : "rgb(11, 17, 27)"}}
         >
-            <div className="relative top-15">
+            <div className="relative top-0 xl:top-15">
                 <h1 
                 className="text-3xl font-bold font-[Inter]"
                 style={{color: textColor}}
@@ -23,7 +23,7 @@ export function LinkContact() {
                 <p
                 className="text-lg font-[Reboto]"
                 >Escolha a melhor forma para entrar em contato ou acompanhar meu trabalho.</p>
-                <ul className="flex gap-10 relative top-8">
+                <ul className="flex gap-10 relative top-8 flex-wrap w-150 xl:flex-nowrap xl:w-full">
                     <Suspense>
                         <RedirectLink textColor={textColor} />
                     </Suspense>
