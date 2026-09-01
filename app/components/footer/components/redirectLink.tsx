@@ -14,7 +14,7 @@ export function RedirectLink({textColor}: {textColor : string | undefined}) {
 
     const text = ["E-mail", "Linkedin", "Github", "Currículo"];
 
-    const links = ["https://mail.google.com/mail/?view=cm&fs=1&to=lucasbrasileiro671@gmail.com", "https://www.linkedin.com/in/lucas-fernandes-brasileiro", "https://github.com/lucas27", "/lucas fernandes brasileiro.pdf"];
+    const links = ["https://mail.google.com/mail/?view=cm&fs=1&to=lucasbrasileiro671@gmail.com", "https://www.linkedin.com/in/lucas-fernandes-brasileiro", "https://github.com/lucas27", "https://drive.google.com/file/d/14Ww5qnr6xRkFIiyv42TZvq9s96hN0Ip9/view?usp=drive_link"];
 
     const message = ["Envie um e-mail diretamente para mim.", "Vamos nos conectar no Linkedin.", "Confira meus projetos e contribuições.", "Baixe meu currículo em PDF."];
 
