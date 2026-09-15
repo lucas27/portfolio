@@ -3,6 +3,8 @@ import arrowWhite from '@/public/icons8-arrow-right-24-white.png';
 import cartAnimationIcon from '@/public/icons8-cart.gif';
 import avatarIcon from '@/public/icons8-profile-avatar-50.png';
 import soundAnimationIcon from '@/public/icons8-sound.gif';
+import fileIcon from '@/public/icons8-file.gif';
+import cardIcon from '@/public/icons8-card-exchange.gif';
 
 import Service from "@/app/service/Service";
 import description from './description.json';
@@ -32,7 +34,9 @@ const ProjectRepository = ({theme, resp }: {theme : string | undefined, resp: Pr
     const [hover, setHover] = useState<number | null>(null);
 
     const icons = [
+        fileIcon.src,
         cartAnimationIcon.src,
+        cardIcon.src,
         avatarIcon.src,
         soundAnimationIcon.src
     ]
