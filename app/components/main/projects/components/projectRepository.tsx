@@ -7,7 +7,7 @@ import fileIcon from '@/public/icons8-file.gif';
 import cardIcon from '@/public/icons8-card-exchange.gif';
 
 import { MouseEventHandler, useRef, useState } from "react";
-import description from '../description.json';
+import { project_description }from '../description.json';
 import { Project } from '../projects';
 import { SkillsBox } from './skillsBox';
 
@@ -35,14 +35,14 @@ export function ProjectRepository({theme, resp }: {theme : string | undefined, r
     const handleMouseMove: MouseEventHandler<HTMLLIElement> = (event)  => {
         event.defaultPrevented;
         const rect = ref.current?.getBoundingClientRect() as DOMRect ;
-
+        
         setCoordinates({
-            x: event.clientX,
-            y: event.clientY,
+            x: event.pageX,
+            y: event.pageY,
             width: Number(rect.width),
             height: Number(rect.height)
         })
-        console.log(coordinates, event.currentTarget.offsetLeft)
+        // console.log(coordinates, event.currentTarget.offsetLeft)
     }
 
     return resp.map((projects, index) => (
@@ -56,16 +56,16 @@ export function ProjectRepository({theme, resp }: {theme : string | undefined, r
         onMouseMove={handleMouseMove}
         ref={ref}
         >
-            {boxHover === index ? <SkillsBox x={coordinates.x} y={coordinates.y} width={coordinates.width} height={coordinates.height} /> : null}
+            {boxHover === index ? <SkillsBox index={index} coordinates={coordinates} /> : null}
             <img className="border-1 rounded-xl bg-white border-transparent shadow-[0_0_15px_rgba(0,0,0,0.3)] h-15 w-15 p-3" src={icons[index]} />
             <div className="flex relative flex-col w-120 ">
                 <h1 className="font-[Inter] text-xl font-bold"
                 style={{color: theme}}
                 >{projects.name.charAt(0).toUpperCase() + projects.name.substring(1)}</h1>
-                <p className="font-[Roboto] text-lg">{description[index]}</p>
+                <p className="font-[Roboto] text-lg">{project_description[index]}</p>
                 <a href={projects.clone_url} target="_blank"
-                onMouseEnter={() => setButtonHover(index)}
-                onMouseLeave={() => {return setButtonHover(null), setCoordinates({x: 0, y: 0, width: 0, height: 0})}}
+                onMouseEnter={() => {return setButtonHover(index), setBoxHover(null)}}
+                onMouseLeave={() => {return setButtonHover(null), setBoxHover(index)}}
                 style={{
                     backgroundColor: buttonHover === index ? "#FF3B3B" : "transparent", 
                     color: buttonHover === index ? "white" : 
