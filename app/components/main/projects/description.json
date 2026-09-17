@@ -1,7 +1,31 @@
-[
-    "Api de armazenamento de arquivos com microsserviços, gateway e autenticação.",
-    "E-commerce completo com front-end e back-end com angular e spring boot.", 
-    "Projeto para estudo com cartões de perguntas e respostas.",
-    "portfolio pessoal com next.js, react e tailwind CSS.",
-    "Replica do soundboard do discord com sistema de edição de audio e adição de imagem."
-]
+{
+    "project_description": [
+        "Api de armazenamento de arquivos com microsserviços, gateway e autenticação.",
+        "E-commerce completo com front-end e back-end com angular e spring boot.", 
+        "Projeto para estudo com cartões de perguntas e respostas.",
+        "portfolio pessoal com next.js, react e tailwind CSS.",
+        "Replica do soundboard do discord com sistema de edição de audio e adição de imagem."
+    ],
+    "skills_projects": {
+        "api_armazenamento": {
+            "tecnologies" : ["Java", "Spring Boot", "Spring jpa", "Spring cloud gateway", "Spring open feign", "Redis", "docker", "kubernetes","postgresSQL"],
+            "architecture": ["microsserviços"]
+        },
+        "e-commerce": {
+            "tecnologies" : ["Java", "Spring Boot", "Spring jpa", "RabbitMQ", "docker", "javaMail", "postgresSQL"],
+            "architecture": ["monolito"]
+        },
+        "flashCard": {
+            "tecnologies": ["nextJs", "prisma", "fastify"],
+            "architecture": ["monolito"]
+        },
+        "portfolio": {
+            "tecnologies": ["nextJs"],
+            "architecture": ["monolito"]
+        },
+        "soundboard": {
+            "tecnologies": ["react", "electron", "lucide"],
+            "architecture": ["monolito"]
+        }
+    }
+}
