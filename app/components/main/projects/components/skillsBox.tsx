@@ -21,7 +21,7 @@ export function SkillsBox({coordinates, index}: {coordinates : coordinates, inde
         }}>
             <h1
             style={{paddingTop: 10}}
-            >Tecnológias usadas:</h1>
+            >Tecnologias usadas:</h1>
             {
                 handleSkills().tecnologies.map((e, key) => (
                     <p 
